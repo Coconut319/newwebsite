@@ -104,14 +104,14 @@ document.querySelectorAll('.faq-question').forEach(question => {
     });
 });
 
-// Navbar background on scroll
+// Navbar background on scroll - keep dark color
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+        navbar.style.background = 'rgba(15, 15, 15, 0.98)';
+        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.8)';
+        navbar.style.background = 'rgba(15, 15, 15, 0.95)';
         navbar.style.boxShadow = 'none';
     }
 });
