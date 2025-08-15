@@ -13,8 +13,8 @@
     --text-primary: #ffffff;
     --text-secondary: #e5e7eb;
     --text-light: #9ca3af;
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #111111;
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #0f0f0f;
     --bg-dark: #000000;
     --border-color: rgba(255, 255, 255, 0.1);
     --glass-bg: rgba(0, 0, 0, 0.3);
@@ -71,7 +71,7 @@ p {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(15, 15, 15, 0.95);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-color);
     transition: all 0.3s ease;
@@ -313,7 +313,7 @@ p {
 /* Featured Section */
 .featured {
     padding: 6rem 0;
-    background: var(--bg-dark);
+    background: var(--bg-primary);
 }
 
 .logos-grid {
@@ -427,7 +427,7 @@ p {
 /* How It Works Section */
 .how-it-works {
     padding: 6rem 0;
-    background: var(--bg-dark);
+    background: var(--bg-primary);
 }
 
 .process-cards {
@@ -540,7 +540,7 @@ p {
 /* Mission Section */
 .mission {
     padding: 6rem 0;
-    background: var(--bg-dark);
+    background: var(--bg-primary);
 }
 
 .mission-content {
@@ -905,7 +905,7 @@ p {
         right: -100%;
         width: 100%;
         height: calc(100vh - 80px);
-        background: rgba(0, 0, 0, 0.95);
+        background: rgba(15, 15, 15, 0.95);
         backdrop-filter: blur(20px);
         flex-direction: column;
         justify-content: flex-start;
@@ -1072,7 +1072,7 @@ p {
 
 .story {
     padding: 6rem 0;
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
 }
 
 .story-content {
@@ -1098,7 +1098,7 @@ p {
 
 .team {
     padding: 6rem 0;
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
 }
 
 .team-grid {
@@ -1152,7 +1152,7 @@ p {
 
 .values {
     padding: 6rem 0;
-    background: var(--bg-dark);
+    background: var(--bg-primary);
 }
 
 .values-grid {
@@ -1203,7 +1203,7 @@ p {
 
 .stats {
     padding: 6rem 0;
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
 }
 
 .stats-grid {
@@ -1224,7 +1224,7 @@ p {
 
 .contact {
     padding: 6rem 0;
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
 }
 
 .contact-content {
@@ -1328,6 +1328,12 @@ p {
     transition: all 0.3s ease;
 }
 
+.form-group input::placeholder,
+.form-group select::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -1382,7 +1388,7 @@ p {
 }
 
 .contact-faq {
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
 }
 
 /* Blog Page Styles */
@@ -1393,7 +1399,7 @@ p {
 
 .featured-article {
     padding: 6rem 0;
-    background: var(--bg-dark);
+    background: var(--bg-primary);
 }
 
 .featured-content {
@@ -1475,7 +1481,7 @@ p {
 
 .blog-articles {
     padding: 6rem 0;
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
 }
 
 .articles-grid {
@@ -1573,6 +1579,10 @@ p {
     background: rgba(255, 255, 255, 0.15);
 }
 
+.newsletter-form input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
 .newsletter-form button {
     padding: 1rem 2rem;
     border: none;
@@ -1591,7 +1601,7 @@ p {
 
 .categories {
     padding: 6rem 0;
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
 }
 
 .categories-grid {
