@@ -117,14 +117,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const rate = scrolled * -0.5;
-        hero.style.transform = `translateY(${rate}px)`;
-    }
-});
+/* Scroll effect removed to prevent stretching */
 
 // Animate chart bars on scroll
 const chartBars = document.querySelectorAll('.chart-bar');
@@ -191,21 +184,7 @@ document.querySelectorAll('.stat-number').forEach(stat => {
     statsObserver.observe(stat);
 });
 
-// Testimonials carousel auto-scroll
-let currentTestimonial = 0;
-const testimonialCards = document.querySelectorAll('.testimonial-card');
-const carouselContainer = document.querySelector('.testimonials-carousel');
-
-if (testimonialCards.length > 0 && window.innerWidth > 768) {
-    setInterval(() => {
-        currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
-        
-        testimonialCards.forEach((card, index) => {
-            card.style.transform = `translateX(${(index - currentTestimonial) * 100}%)`;
-            card.style.transition = 'transform 0.5s ease';
-        });
-    }, 5000);
-}
+/* Testimonials auto-scroll removed to prevent movement */
 
 // Button hover effects
 document.querySelectorAll('.cta-button, .plan-button').forEach(button => {
@@ -263,20 +242,7 @@ function throttle(func, limit) {
     }
 }
 
-// Apply throttling to scroll events
-const throttledScrollHandler = throttle(() => {
-    // Scroll-based animations
-    const scrolled = window.pageYOffset;
-    const parallaxElements = document.querySelectorAll('.hero, .dashboard-mockup');
-    
-    parallaxElements.forEach(element => {
-        const speed = element.dataset.speed || 0.5;
-        const yPos = -(scrolled * speed);
-        element.style.transform = `translateY(${yPos}px)`;
-    });
-}, 16); // ~60fps
-
-window.addEventListener('scroll', throttledScrollHandler);
+/* Scroll-based animations removed to prevent stretching */
 
 // Add loading states to buttons
 document.querySelectorAll('button').forEach(button => {
@@ -346,5 +312,134 @@ if ('serviceWorker' in navigator) {
             .catch(registrationError => {
                 console.log('SW registration failed: ', registrationError);
             });
+    });
+}
+
+// Contact Form Handling with Formspark
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.querySelector('.contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            const submitButton = this.querySelector('.submit-button');
+            const originalText = submitButton.textContent;
+            
+            // Show loading state
+            submitButton.textContent = 'Wird gesendet...';
+            submitButton.disabled = true;
+            submitButton.style.background = '#6366f1';
+            
+            // Let Formspark handle the submission naturally
+            // The form will submit to Formspark and redirect to the form page
+            
+            // Reset button after 5 seconds (in case user stays on page)
+            setTimeout(() => {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                submitButton.style.background = '';
+            }, 5000);
+        });
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        const servicesSelect = document.getElementById('servicesSelect');
+        const servicesDropdown = document.getElementById('servicesDropdown');
+        
+        if (servicesSelect && !servicesSelect.contains(e.target)) {
+            servicesDropdown.classList.remove('active');
+        }
+    });
+});
+
+// Toggle services dropdown
+function toggleServicesDropdown() {
+    const dropdown = document.getElementById('servicesDropdown');
+    dropdown.classList.toggle('active');
+}
+
+// Update selected text when checkboxes change
+document.addEventListener('change', function(e) {
+    if (e.target.name === 'services[]') {
+        updateServicesText();
+    }
+});
+
+function updateServicesText() {
+    const checkboxes = document.querySelectorAll('input[name="services[]"]:checked');
+    const selectText = document.querySelector('.select-text');
+    
+    if (checkboxes.length === 0) {
+        selectText.textContent = 'Bitte wählen Sie';
+    } else if (checkboxes.length === 1) {
+        selectText.textContent = checkboxes[0].parentElement.textContent.trim();
+    } else {
+        // Show the actual selected services separated by commas
+        const selectedServices = Array.from(checkboxes).map(checkbox => 
+            checkbox.parentElement.textContent.trim()
+        );
+        selectText.textContent = selectedServices.join(', ');
+    }
+}
+
+// Notification system for form feedback
+function showNotification(message, type = 'info') {
+    // Remove existing notifications
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(notification => notification.remove());
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-message">${message}</span>
+            <button class="notification-close">&times;</button>
+        </div>
+    `;
+    
+    // Add styles
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${type === 'success' ? '#10B981' : type === 'error' ? '#EF4444' : '#3B82F6'};
+        color: white;
+        padding: 16px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 10000;
+        max-width: 400px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    `;
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 5000);
+    
+    // Close button functionality
+    const closeButton = notification.querySelector('.notification-close');
+    closeButton.addEventListener('click', () => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
     });
 }
