@@ -1088,6 +1088,36 @@ p {
     .categories-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    /* Enhanced mobile form improvements */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    /* Better touch targets for mobile */
+    .nav-link {
+        padding: 1rem 0;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Improve mobile navigation spacing */
+    .nav-menu {
+        padding-top: 1rem;
+        gap: 0.5rem;
+    }
+    
+    /* Better mobile button sizing */
+    .cta-button,
+    .submit-button,
+    .plan-button {
+        min-height: 44px;
+        touch-action: manipulation;
+    }
 }
 
 /* Tablet Styles */
@@ -1285,10 +1315,13 @@ p {
     line-height: 1.8;
 }
 
+/* Contact methods with mobile improvements */
 .contact-methods {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    /* Mobile improvements */
+    margin: 0 0.5rem;
 }
 
 .contact-method {
@@ -1301,6 +1334,8 @@ p {
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
+    /* Mobile improvements */
+    min-height: 60px;
 }
 
 .contact-method:hover {
@@ -1319,17 +1354,24 @@ p {
     font-size: 1.25rem;
     color: white;
     flex-shrink: 0;
+    /* Mobile improvements */
+    min-width: 50px;
+    min-height: 50px;
 }
 
 .method-info h3 {
     font-size: 1.1rem;
     margin-bottom: 0.25rem;
     color: var(--text-primary);
+    /* Mobile improvements */
+    line-height: 1.2;
 }
 
 .method-info p {
     color: var(--text-secondary);
     margin: 0;
+    /* Mobile improvements */
+    line-height: 1.4;
 }
 
 .contact-form-container {
@@ -1348,6 +1390,7 @@ p {
     text-align: center;
 }
 
+/* Form group base styles with mobile improvements */
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -1371,6 +1414,13 @@ p {
     background: rgba(255, 255, 255, 0.05);
     color: var(--text-primary);
     transition: all 0.3s ease;
+    /* Prevent iOS zoom */
+    font-size: 16px;
+    /* Better mobile touch targets */
+    min-height: 44px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .form-group input::placeholder,
@@ -1437,10 +1487,12 @@ p {
     text-decoration: none;
 }
 
-/* Custom select styling */
+/* Custom select styling with mobile improvements */
 .custom-select {
     position: relative;
     width: 100%;
+    /* Mobile improvements */
+    min-height: 44px;
 }
 
 .select-header {
@@ -1459,14 +1511,16 @@ p {
     background-position: right 1rem center;
     background-size: 1em;
     padding-right: 2.5rem;
+    /* Mobile improvements */
+    min-height: 44px;
+    font-size: 16px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .select-header:hover {
     border-color: var(--primary-color);
     background: rgba(255, 255, 255, 0.1);
 }
-
-
 
 .select-dropdown {
     position: absolute;
@@ -1482,6 +1536,9 @@ p {
     transition: all 0.3s ease;
     z-index: 1000;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    /* Mobile improvements */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: none;
 }
 
 .select-dropdown.active {
@@ -1497,6 +1554,9 @@ p {
     transition: background-color 0.2s ease;
     gap: 0.75rem;
     border: none;
+    /* Mobile improvements */
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .select-option:hover {
@@ -1508,6 +1568,9 @@ p {
     height: 18px;
     margin: 0;
     accent-color: var(--primary-color);
+    /* Mobile improvements */
+    min-width: 20px;
+    min-height: 20px;
 }
 
 .select-option .checkmark {
@@ -1523,7 +1586,7 @@ p {
     font-style: italic;
 }
 
-/* Phone input group styling */
+/* Phone input group styling with mobile improvements */
 .phone-input-group {
     display: flex;
     align-items: center;
@@ -1531,6 +1594,8 @@ p {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
     overflow: hidden;
+    /* Mobile improvements */
+    min-height: 44px;
 }
 
 .country-code {
@@ -1540,6 +1605,12 @@ p {
     font-weight: 500;
     font-size: 0.9rem;
     border-right: 1px solid rgba(255, 255, 255, 0.2);
+    /* Mobile improvements */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 .phone-input-group input[type="tel"] {
@@ -1547,6 +1618,10 @@ p {
     background: transparent;
     flex: 1;
     border-radius: 0;
+    /* Mobile improvements */
+    min-height: 44px;
+    font-size: 16px;
+    padding: 1rem;
 }
 
 .submit-button {
@@ -1561,6 +1636,11 @@ p {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+    /* Mobile improvements */
+    min-height: 44px;
+    font-size: 16px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .submit-button:hover {
@@ -2311,5 +2391,288 @@ p {
     100% {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+/* Enhanced Mobile Responsiveness for Contact Page */
+@media (max-width: 768px) {
+    .contact-hero {
+        min-height: 50vh;
+        padding: 100px 1rem 2rem;
+    }
+    
+    .contact {
+        padding: 3rem 0;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-info {
+        order: 2;
+    }
+    
+    .contact-form-container {
+        order: 1;
+        padding: 1.5rem;
+    }
+    
+    .contact-form h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .contact-methods {
+        gap: 1rem;
+    }
+    
+    .contact-method {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    
+    .method-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .method-info h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .method-info p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .phone-input-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .country-code {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .phone-input-group input[type="tel"] {
+        padding: 0.75rem;
+        text-align: center;
+    }
+    
+    .custom-select {
+        margin-bottom: 0.5rem;
+    }
+    
+    .select-header {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .select-dropdown {
+        max-height: 200px;
+    }
+    
+    .select-option {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .checkbox-label {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+    
+    .submit-button {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-info p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Additional mobile improvements */
+    .contact-form-container {
+        margin: 0 0.5rem;
+        border-radius: 15px;
+    }
+    
+    .contact-method {
+        border-radius: 12px;
+        margin: 0 0.5rem;
+    }
+    
+    /* Better mobile form spacing */
+    .form-group:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Improve mobile checkbox alignment */
+    .checkbox-group {
+        margin-top: 0.5rem;
+    }
+    
+    .checkbox-label {
+        align-items: center;
+        min-height: 44px;
+    }
+    
+    .checkbox-label input[type="checkbox"] {
+        min-width: 20px;
+        min-height: 20px;
+    }
+    
+    /* Better mobile select dropdown */
+    .select-dropdown {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-top: none;
+        border-radius: 0 0 10px 10px;
+    }
+    
+    /* Mobile-specific phone input improvements */
+    .phone-input-group {
+        border-radius: 8px;
+    }
+    
+    .country-code {
+        border-radius: 8px 8px 0 0;
+    }
+    
+    .phone-input-group input[type="tel"] {
+        border-radius: 0 0 8px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-hero {
+        padding: 80px 0.75rem 1.5rem;
+    }
+    
+    .contact {
+        padding: 2rem 0;
+    }
+    
+    .contact-content {
+        gap: 1.5rem;
+    }
+    
+    .contact-form-container {
+        padding: 1rem;
+        margin: 0 0.5rem;
+    }
+    
+    .contact-form h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-method {
+        padding: 0.75rem;
+    }
+    
+    .method-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .method-info h3 {
+        font-size: 0.9rem;
+    }
+    
+    .method-info p {
+        font-size: 0.8rem;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.625rem;
+        font-size: 0.85rem;
+    }
+    
+    .submit-button {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.85rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .contact-info p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile-specific form improvements */
+@media (max-width: 768px) {
+    .contact-form {
+        /* Better mobile form spacing */
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-group:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Better mobile button spacing */
+    .submit-button {
+        margin-top: 0.5rem;
+    }
+    
+    /* Improve mobile checkbox layout */
+    .checkbox-group {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .checkbox-label {
+        line-height: 1.4;
+        padding: 0.5rem 0;
+    }
+    
+    /* Better mobile textarea */
+    .form-group textarea {
+        min-height: 100px;
+        resize: vertical;
     }
 }
