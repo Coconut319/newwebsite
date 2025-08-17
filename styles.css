@@ -1,3 +1,44 @@
+/* Font Face Declarations */
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -1307,6 +1348,7 @@ p {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start;
+    position: relative;
 }
 
 .contact-info {
@@ -1324,10 +1366,12 @@ p {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    /* Center the contact methods */
+    /* Position contact methods to align with phone input */
     align-items: center;
     max-width: 400px;
     margin: 0 auto;
+    /* Align with phone input in form */
+    margin-top: 22.5rem;
 }
 
 .contact-method {
@@ -1354,7 +1398,7 @@ p {
 .method-icon {
     width: 50px;
     height: 50px;
-    background: #1a0b3d; /* Very dark purple background */
+    background: var(--primary-color); /* Same as country code background */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -2425,6 +2469,10 @@ p {
         text-align: center;
     }
     
+    .contact-methods {
+        margin-top: 7.5rem;
+    }
+    
     .contact-form-container {
         order: 1;
         padding: 1.5rem;
@@ -2599,6 +2647,10 @@ p {
     
     .contact-content {
         gap: 1.5rem;
+    }
+    
+    .contact-methods {
+        margin-top: 7.5rem;
     }
     
     .contact-form-container {
